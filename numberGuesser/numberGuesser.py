@@ -1,30 +1,42 @@
 import sys
 import time
 
+
+
 def sleep(sec):
     time.sleep(sec)
 
+def display_progress_bar(duration):
+    for i in range(101):
+        sys.stdout.write('\r')
+        sys.stdout.write("[%-10s] %d%%" % ('='*(i//10), i))
+        sys.stdout.flush()
+        sleep(duration / 100)
+    print()
+
 def main():
     print("I can guess what number you are thinking of...")
-    sleep(1.5)
-    number = input("Enter the number you are thinking of: ")
-    if any(char.isalpha() for char in number):
-        sleep(1)
-        print("\n Your suppose to enter a number, not letters 😞😞")
-    else:
+    while True:
+        sleep(1.5)
+        try:
+            number = int(input("Enter the number you are thinking of: "))
+        except ValueError:
+            sleep(1)
+            print("\nYou are supposed to enter a number, not letters 😞😞")
+            continue
+
         sleep(2)
-        for i in range(101):
-            sys.stdout.write('\r')
-            sys.stdout.write("[%-10s] %d%%" % ('='*i, 1*i))
-            sys.stdout.flush()
-            sleep(0.1)
-    
-        print("\n Analysing brainwaves...")
+        display_progress_bar(10)
+        
+        print("\nAnalyzing brainwaves...")
         sleep(4.5)
-        print("\n You are thinking of the number " + str(number) + ".")
+        print("\nYou are thinking of the number " + str(number) + ".")
         sleep(3.5)
-        print("\n I'm so smart 🤣🤣")
-        sys.exit()
+        print("\nI'm so smart 🤣🤣")
+
+        play_again = input("Do you want to play again? (yes/no): ")
+        if play_again.lower() != 'yes':
+            break
 
 if __name__ == '__main__':
     main()
