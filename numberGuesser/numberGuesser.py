@@ -1,6 +1,8 @@
 import sys
 import time
 
+
+
 def sleep(sec):
     time.sleep(sec)
 
@@ -13,8 +15,10 @@ def display_progress_bar(duration):
     print()
 
 def main():
+    know = False
+    print("I can guess what number you are thinking of...")
     while True:
-        print("I can guess what number you are thinking of...")
+        know = True
         sleep(1.5)
         try:
             number = int(input("Enter the number you are thinking of: "))
