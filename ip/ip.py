@@ -36,10 +36,10 @@ def main():
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
             )
         sleep(delay)
-        one = str(rand.choice(range(1, 99)))
-        two = str(rand.choice(range(1, 99)))
-        three = str(rand.choice(range(1, 300)))
-        four = str(rand.choice(range(1, 300)))
+        one = str(rand.choice(range(0, 255)))
+        two = str(rand.choice(range(0, 255)))
+        three = str(rand.choice(range(0, 255)))
+        four = str(rand.choice(range(0, 255)))
 
         str(print(one + "." + two + "." + three + "." + four))
 
